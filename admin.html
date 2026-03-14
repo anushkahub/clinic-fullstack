@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title></head>
+<body>
+
+<h1>Appointments</h1>
+<ul id="list"></ul>
+
+<script>
+fetch("http://localhost:5000/api/appointments")
+.then(r=>r.json())
+.then(data=>{
+let list=document.getElementById("list");
+data.forEach(a=>{
+let li=document.createElement("li");
+li.innerText=a.patientName+" - "+a.date;
+list.appendChild(li);
+});
+});
+</script>
+
+</body>
+</html>
